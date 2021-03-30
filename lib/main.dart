@@ -82,9 +82,9 @@ class _MyHomePageState extends State<MyHomePage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Icon(
-                                Icons.business,
+                                Icons.account_box,
                               ),
-                              Text('Experiences')
+                              Text('About me')
                             ]),
                       ),
                     ),
@@ -130,9 +130,9 @@ class _MyHomePageState extends State<MyHomePage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Icon(
-                                  Icons.business,
+                                  Icons.book,
                                 ),
-                                Text('Experiences')
+                                Text('Formation')
                               ]),
                         ),
                       ),
@@ -150,9 +150,9 @@ class _MyHomePageState extends State<MyHomePage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Icon(
-                                  Icons.business,
+                                  Icons.computer,
                                 ),
-                                Text('Experiences')
+                                Text('Skills')
                               ]),
                         ),
                       ),
