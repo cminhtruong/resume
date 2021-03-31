@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -40,6 +42,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    stdout.writeln("Started MyHomePageState");
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -90,25 +93,28 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Expanded _buildCardItem(IconData icon, String title) {
+    stdout.writeln("_buildCardItem with " + title);
     return Expanded(
-      flex: 2,
-      child: SizedBox(
-        child: Card(
-          elevation: 8,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8.0),
+        flex: 2,
+        child: Container(
+          margin: const EdgeInsets.all(4.0),
+          child: SizedBox(
+            child: Card(
+              elevation: 8,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      icon,
+                    ),
+                    Text(title)
+                  ]),
+            ),
           ),
-          child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  icon,
-                ),
-                Text(title)
-              ]),
-        ),
-      ),
-    );
+        ));
   }
 }
