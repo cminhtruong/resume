@@ -51,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Container(
-        margin: const EdgeInsets.only(bottom: 20.0),
+        margin: const EdgeInsets.only(bottom: 20.0, left: 10.0, right: 10.0),
         child: Column(
           children: [
             Expanded(
@@ -69,46 +69,8 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Expanded(
-                    flex: 2,
-                    child: SizedBox(
-                      child: Card(
-                        elevation: 8,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
-                        child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.account_box,
-                              ),
-                              Text('About me')
-                            ]),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 2,
-                    child: SizedBox(
-                      child: Card(
-                        elevation: 8,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
-                        child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.business,
-                              ),
-                              Text('Experiences')
-                            ]),
-                      ),
-                    ),
-                  ),
+                  _buildCardItem(Icons.account_box, "About me"),
+                  _buildCardItem(Icons.business, "Experiences"),
                 ],
               ),
             ),
@@ -117,49 +79,34 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Expanded(
-                      flex: 2,
-                      child: SizedBox(
-                        child: Card(
-                          elevation: 8,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  Icons.book,
-                                ),
-                                Text('Formation')
-                              ]),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 2,
-                      child: SizedBox(
-                        child: Card(
-                          elevation: 8,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  Icons.computer,
-                                ),
-                                Text('Skills')
-                              ]),
-                        ),
-                      ),
-                    ),
+                    _buildCardItem(Icons.book, "Formation"),
+                    _buildCardItem(Icons.computer, "Skills"),
                   ],
                 ))
           ],
+        ),
+      ),
+    );
+  }
+
+  Expanded _buildCardItem(IconData icon, String title) {
+    return Expanded(
+      flex: 2,
+      child: SizedBox(
+        child: Card(
+          elevation: 8,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.0),
+          ),
+          child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  icon,
+                ),
+                Text(title)
+              ]),
         ),
       ),
     );
