@@ -7,6 +7,13 @@ void main() {
   runApp(MyApp());
 }
 
+/*
+ * Main screen in opening the resume
+ * 
+ * @author el_even
+ * @since 01/04/2021
+ * @version 1.0
+ */
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
@@ -72,8 +79,18 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  _buildCardItem(Icons.account_box, "About me"),
-                  _buildCardItem(Icons.business, "Experiences"),
+                  InkWell(
+                    onTap: () {
+                      // Navigate to About me
+                    },
+                    child: _buildCardItem(Icons.account_box, "About me"),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      // Navigate to Experiences
+                    },
+                    child: _buildCardItem(Icons.business, "Experiences"),
+                  )
                 ],
               ),
             ),
@@ -83,6 +100,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     _buildCardItem(Icons.book, "Formation"),
+
+                    // InkWell(
+                    //   onTap: () {
+                    //     // Navigate to skills
+                    //   },
                     _buildCardItem(Icons.computer, "Skills"),
                   ],
                 ))
