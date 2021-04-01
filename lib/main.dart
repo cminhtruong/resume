@@ -79,18 +79,8 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  InkWell(
-                    onTap: () {
-                      // Navigate to About me
-                    },
-                    child: _buildCardItem(Icons.account_box, "About me"),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      // Navigate to Experiences
-                    },
-                    child: _buildCardItem(Icons.business, "Experiences"),
-                  )
+                  _buildCardItem(Icons.account_box, "About me"),
+                  _buildCardItem(Icons.business, "Experiences"),
                 ],
               ),
             ),
@@ -100,11 +90,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     _buildCardItem(Icons.book, "Formation"),
-
-                    // InkWell(
-                    //   onTap: () {
-                    //     // Navigate to skills
-                    //   },
                     _buildCardItem(Icons.computer, "Skills"),
                   ],
                 ))
@@ -117,15 +102,16 @@ class _MyHomePageState extends State<MyHomePage> {
   Expanded _buildCardItem(IconData icon, String title) {
     stdout.writeln("_buildCardItem with " + title);
     return Expanded(
-        flex: 2,
-        child: Container(
-          margin: const EdgeInsets.all(4.0),
-          child: SizedBox(
-            child: Card(
-              elevation: 8,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8.0),
-              ),
+      flex: 2,
+      child: Container(
+        margin: const EdgeInsets.all(4.0),
+        child: Card(
+            elevation: 8,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            child: InkWell(
+              onTap: () {},
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -135,8 +121,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     Text(title)
                   ]),
-            ),
-          ),
-        ));
+            )),
+      ),
+    );
   }
 }
