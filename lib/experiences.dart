@@ -1,35 +1,35 @@
 import 'package:flutter/material.dart';
 
 /*
- *  
- * This page contains all necessary information about me
- * 
- * @author el_even
- * @version 1.0
- * @since 01/04/2021
  *
+ * The list of experiences
+ *
+ * @author el_even
+ * @since 02/04/2021
+ * @version 1.0
  */
-class AboutMe extends StatelessWidget {
+class Experiences extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // TODO: implement build
     return MaterialApp(
-      title: "My name is David Truong",
+      title: "Working process",
       theme: ThemeData(primaryColor: Colors.blue, accentColor: Colors.grey),
-      home: AboutMePage(title: "My name is David Truong"),
+      home: ExperiencesPage(title: "Experiences"),
     );
   }
 }
 
-class AboutMePage extends StatefulWidget {
-  AboutMePage({Key key, this.title}) : super(key: key);
+class ExperiencesPage extends StatefulWidget {
+  ExperiencesPage({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  State<StatefulWidget> createState() => _AboutMeState();
+  State<StatefulWidget> createState() => _ExperiencesState();
 }
 
-class _AboutMeState extends State<AboutMePage> {
+class _ExperiencesState extends State<ExperiencesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
