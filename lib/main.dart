@@ -2,6 +2,10 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'aboutMe.dart';
+import 'experiences.dart';
+import 'formation.dart';
+import 'skills.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,6 +24,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'David Resume',
+      initialRoute: '/',
+      routes: {
+        '/': (context) => MyHomePage(title: 'David\'s profile'),
+        '/AboutMe': (context) => AboutMePage(title: 'AboutMe'),
+        '/Experiences': (context) => ExperiencesPage(title: 'Experiences'),
+        '/Formation': (context) => FormationPage(title: 'Formation'),
+        '/Skills': (context) => SkillsPage(title: 'Skills')
+      },
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -32,7 +44,6 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'David\'s profile'),
     );
   }
 }
@@ -79,7 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  _buildCardItem(Icons.account_box, "About me"),
+                  _buildCardItem(Icons.account_box, "AboutMe"),
                   _buildCardItem(Icons.business, "Experiences"),
                 ],
               ),
@@ -111,7 +122,9 @@ class _MyHomePageState extends State<MyHomePage> {
               borderRadius: BorderRadius.circular(8.0),
             ),
             child: InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, '/' + title);
+              },
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
